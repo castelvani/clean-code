@@ -1,0 +1,15 @@
+{
+    "name": "gabriel/clean-code",
+    "autoload": {
+        "psr-4": {
+            "Gabriel\\CleanCode\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gabriel",
+            "email": "ggnei@hotmail.com"
+        }
+    ],
+    "require": {}
+}
