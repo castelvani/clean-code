@@ -1,5 +1,2 @@
-.en
-vendor
-vendor/*.php
-vendor/composer/*.php
-vendor/composer/*
+.env
+/vendor/
