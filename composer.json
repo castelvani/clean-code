@@ -2,7 +2,12 @@
     "name": "gabriel/clean-code",
     "autoload": {
         "psr-4": {
-            "Gabriel\\CleanCode\\": "src/"
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -11,5 +16,7 @@
             "email": "ggnei@hotmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "12"
+    }
 }
