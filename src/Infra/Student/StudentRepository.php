@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Infra\Student;
 
 use App\Domain\Cpf;
@@ -38,10 +40,16 @@ class StudentRepository implements StudentStudentRepository
 
   public function findByCpf(Cpf $cpf): ?Student
   {
-    // $sql = 'SELECT * FROM students WHERE cpf = :cpf';
-    // $stmt = $this->connection->prepare($sql);
-    // $stmt->bindValue(':cpf', (string) $cpf);
-    // $stmt->execute();
-    // $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $sql = 'SELECT * FROM students WHERE cpf = :cpf';
+    $stmt = $this->connection->prepare($sql);
+    $stmt->bindValue(':cpf', (string) $cpf);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return Student::withCpfEmailName(
+      $result['cpf'],
+      $result['email'],
+      $result['name']
+    );
   }
 }

@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"App\\Tests\\CpfTest::testValidCpf":0.004}}
+{"version":1,"defects":{"App\\Tests\\App\\Student\\RegisterStudentTest::testStudentShouldBeRegistered":7},"times":{"App\\Tests\\CpfTest::testValidCpf":0,"App\\Tests\\App\\Student\\RegisterStudentTest::testStudentShouldBeRegistered":0.006}}

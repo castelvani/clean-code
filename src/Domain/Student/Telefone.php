@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Student;
 
-class Telephone implements \Stringable
+class Telefone implements \Stringable
 {
   private string $number;
   private string $ddd;

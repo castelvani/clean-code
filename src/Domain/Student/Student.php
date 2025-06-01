@@ -13,6 +13,7 @@ class Student
   private string $name;
   private Email $email;
   private array $telefones;
+  private string $password;
 
   public function __construct(Cpf $cpf, string $name, Email $email)
   {
@@ -30,9 +31,9 @@ class Student
     return new Student($cpf, $name, $email);
   }
 
-  public function addTelephone(string $numero, string $ddd): self
+  public function addTelefone(string $numero, string $ddd): self
   {
-    $this->telefones[] = new Telephone($numero, $ddd);
+    $this->telefones[] = new Telefone($numero, $ddd);
 
     return $this;
   }
