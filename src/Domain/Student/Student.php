@@ -12,7 +12,7 @@ class Student
   private Cpf $cpf;
   private string $name;
   private Email $email;
-  private array $telefones;
+  private array $telefones = [];
   private string $password;
 
   public function __construct(Cpf $cpf, string $name, Email $email)
@@ -33,6 +33,10 @@ class Student
 
   public function addTelefone(string $numero, string $ddd): self
   {
+    if (count($this->telefones) >= 2) {
+      throw new StudentTelefoneLimit('Apenas dois telefones são permitidos.');
+    }
+
     $this->telefones[] = new Telefone($numero, $ddd);
 
     return $this;
