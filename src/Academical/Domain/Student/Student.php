@@ -1,0 +1,64 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Academical\Domain\Student;
+
+use App\Shared\Domain\Cpf;
+use App\Academical\Domain\Email;
+
+class Student
+{
+  private Cpf $cpf;
+  private string $name;
+  private Email $email;
+  private array $telefones = [];
+  private string $password;
+
+  public function __construct(Cpf $cpf, string $name, Email $email)
+  {
+    $this->cpf = $cpf;
+    $this->name = $name;
+    $this->email = $email;
+  }
+
+  // Named constructor to create a Student with CPF, Email, and Name
+  public static function withCpfEmailName(string $cpf, string $email, string $name): self
+  {
+    $cpf = new Cpf($cpf);
+    $email = new Email($email);
+
+    return new Student($cpf, $name, $email);
+  }
+
+  public function addTelefone(string $numero, string $ddd): self
+  {
+    if (count($this->telefones) >= 2) {
+      throw new StudentTelefoneLimit('Apenas dois telefones são permitidos.');
+    }
+
+    $this->telefones[] = new Telefone($numero, $ddd);
+
+    return $this;
+  }
+
+  public function getCpf(): Cpf
+  {
+    return $this->cpf;
+  }
+
+  public function getName(): string
+  {
+    return $this->name;
+  }
+
+  public function getEmail(): Email
+  {
+    return $this->email;
+  }
+
+  public function getTelefones(): array
+  {
+    return $this->telefones;
+  }
+}
